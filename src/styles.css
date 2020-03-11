@@ -1,0 +1,27 @@
+* {
+  font-family: 'Roboto', sans-serif
+}
+
+.shadow-card {
+  -webkit-box-shadow: 0px 2px 6px -1px rgba(87,87,87,1);
+  -moz-box-shadow: 0px 2px 6px -1px rgba(87,87,87,1);
+  box-shadow: 0px 2px 6px -1px rgba(87,87,87,1);
+}
+
+.spinner {
+  animation: spin 1.3s linear 0s infinite;
+} @keyframes spin {
+  0% { transform: rotate(0deg) }
+  100% { transform: rotate(360deg) }
+}
+
+.faded {
+  animation: fader .2s ease-in 0s;
+} @keyframes fader {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
