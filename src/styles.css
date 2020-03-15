@@ -2,6 +2,13 @@
   font-family: 'Roboto', sans-serif
 }
 
+footer {
+  position: fixed;
+  bottom: 0;
+  background-color: #ebebeb;
+  width: 100%;
+}
+
 .shadow-card {
   -webkit-box-shadow: 0px 2px 6px -1px rgba(87,87,87,1);
   -moz-box-shadow: 0px 2px 6px -1px rgba(87,87,87,1);

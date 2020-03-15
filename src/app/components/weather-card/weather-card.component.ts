@@ -19,6 +19,7 @@ export class WeatherCardComponent implements OnInit {
     switch (clime) {
       case 'clouds':
       case 'mist':
+      case 'haze':
         return 'clouded-sun.png';
 
       case 'clear':

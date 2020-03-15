@@ -1,12 +1,12 @@
 <nav class="navbar navbar-light justify-content-center p-3">
   <form class="form-inline shadow-sm">
     <div class="input-group">
-      <input type="search" [placeholder]="typeSearch" #text
+      <input  type="search" [placeholder]="typeSearch" name="search" [(ngModel)]="search" id="search"
               class="form-control border-right-0 rounded-left">
 
       <div class="input-group-preprend">
         <button class="btn btn-primary border-left-0 rounded-0"
-                (click)="getPlace(text.value, $event)">
+                (click)="getPlace($event)">
           <i *ngIf="!searching" class="fas fa-search"></i>
           <i *ngIf="searching"class="far fa-compass spinner"></i>
         </button>
@@ -16,11 +16,11 @@
 
   <div class="btn-group mt-2">
     <button type="button" value="name" class="btn btn-sm btn-primary"
-            style="width: 5em; opacity: 1" (click)="setType($event)">
+            style="width: 5em; opacity: 1" (click)="setType($event.target)">
       Name
     </button>
     <button type="button" value="zip" class="btn btn-sm btn-primary"
-            style="width: 5em; opacity: .7" (click)="setType($event)">
+            style="width: 5em; opacity: .7" (click)="setType($event.target)">
       Zip
     </button>
   </div>

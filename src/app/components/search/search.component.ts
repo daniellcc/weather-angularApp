@@ -7,38 +7,50 @@ import { Weather } from '../../interfaces/weather';
 @Component({
   selector: 'app-search',
   templateUrl: './search.component.html',
-  styles: []
+  styles: ['#search::-webkit-search-cancel-button {cursor: pointer}']
 })
 export class SearchComponent implements OnInit {
   @Output() weatherData = new EventEmitter();
 
+  search: string;
+
   typeSearch = 'city name';
   typeRequest = 'q';
 
-  searching = false;
+  searching = false; // for loading animation
 
-  constructor(private apiService: WeatherService) {}
+  constructor(private apiService: WeatherService) { }
 
-  ngOnInit() {
-  }
+  ngOnInit() { }
 
-  getPlace(text: string, event: Event) {
+  getPlace(event: Event): void {
     event.preventDefault();
     this.onSearch();
 
-    this.apiService.searchBy(this.typeRequest, text).subscribe(
+    this.apiService.searchBy(this.typeRequest, this.search).subscribe(
       (data: Weather) => this.weatherData.emit(data),
       (err: Error) => {
         alert(err);
         this.onSearch();
       },
-      () => this.onSearch()
+      () => {
+        this.onSearch();
+        this.clearField();
+      }
     );
   }
 
-  setType(event) {
-    const btn = event.target;
-    this.activeType(event);
+  onSearch(): void {
+    this.searching = !this.searching;
+  }
+
+  clearField(): void {
+    this.search = '';
+  }
+
+  setType(btn: HTMLButtonElement): void {
+
+    this.activeType(btn);
     if (btn.value === 'name') {
       this.typeSearch = 'city name';
       this.typeRequest = 'q';
@@ -48,20 +60,18 @@ export class SearchComponent implements OnInit {
     }
   }
 
-  onSearch() {
-    this.searching = !this.searching;
-  }
-
-  activeType(event) {
-    const opposite = event.target.previousElementSibling;
-    const next = event.target.nextElementSibling;
+  activeType(btn: any): void { // toggler search-type
+    const opposite = btn.previousElementSibling;
+    const next = btn.nextElementSibling;
 
     if (opposite) {
-      event.target.style.opacity = '1';
+      btn.style.opacity = '1';
       opposite.style.opacity = '.7';
     } else {
-      event.target.style.opacity = '1';
+      btn.style.opacity = '1';
       next.style.opacity = '.7';
     }
+
+    this.clearField();
   }
 }
