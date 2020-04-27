@@ -1,5 +1,5 @@
 <div class="card shadow-card p-3 mb-5" *ngIf="weather">
-  <div class="card-header text-center bg-primary  text-white">
+  <div class="card-header text-center bg-primary  text-white align-bottom">
     <h4>{{ weather.name }}, <small>{{ weather.sys.country }}</small></h4>
   </div>
 
@@ -20,5 +20,7 @@
         <span>{{ weather.main.humidity }}%</span>
       </li>
     </ul>
+    
   </div>
 </div>
+

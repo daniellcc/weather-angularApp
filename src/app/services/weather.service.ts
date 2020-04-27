@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
-import { catchError } from 'rxjs/operators';
+import { catchError, retry } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +15,10 @@ export class WeatherService {
 
   searchBy(type: string, place: string): Observable<object> {
     return this.http.get(`${this.link}${type}=${place}&APPID=${this.key}`)
-                .pipe(catchError(this.handleError));
+      .pipe(
+        retry(3),
+        catchError(this.handleError)
+      );
   }
 
   private handleError(errorResponse: HttpErrorResponse) {

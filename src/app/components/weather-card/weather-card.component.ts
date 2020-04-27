@@ -8,14 +8,13 @@ import { Weather } from '../../interfaces/weather';
 })
 export class WeatherCardComponent implements OnInit {
   @Input() weather: Weather;
+
   constructor() { }
 
-  ngOnInit() {
-  }
+  ngOnInit() { }
 
-  setImg(type: Weather): string {
+  setImg(type: Weather) {
     const clime = type.weather[0].main.toLowerCase();
-
     switch (clime) {
       case 'clouds':
       case 'mist':

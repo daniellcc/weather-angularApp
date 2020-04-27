@@ -8,7 +8,6 @@ import { Weather } from './interfaces/weather';
 })
 export class AppComponent {
   weather: Weather;
-
   receiveWeather(event: Weather) {
     this.weather = event;
   }

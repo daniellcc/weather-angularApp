@@ -27,17 +27,18 @@ export class SearchComponent implements OnInit {
     event.preventDefault();
     this.onSearch();
 
-    this.apiService.searchBy(this.typeRequest, this.search).subscribe(
-      (data: Weather) => this.weatherData.emit(data),
-      (err: Error) => {
-        alert(err);
-        this.onSearch();
-      },
-      () => {
-        this.onSearch();
-        this.clearField();
-      }
-    );
+    this.apiService.searchBy(this.typeRequest, this.search)
+      .subscribe(
+        (data: Weather) => {
+          this.weatherData.emit(data);
+          this.onSearch();
+          this.clearField();
+        },
+        (err: Error) => {
+          alert(err);
+          this.onSearch();
+        }
+      )
   }
 
   onSearch(): void {
