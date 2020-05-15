@@ -1,12 +1,9 @@
 * {
-  font-family: 'Roboto', sans-serif
+  font-family: 'Roboto', sans-serif;
 }
 
-footer {
-  position: fixed;
-  bottom: 0;
-  background-color: #ebebeb;
-  width: 100%;
+.search {
+  min-width: 15rem;
 }
 
 .shadow-card {

@@ -1,25 +1,28 @@
+<header>
+  <nav class="navbar navbar-light bg-light shadow-card">
+    <h1 class="navbar-brand m-0">Weather app</h1>
+    <ul class="navbar-nav">
+      <li class="navbar-item">
+        <a href="https://github.com/daniellcc/weather-angularApp" target="_blank">
+          <i class="fab fa-github p-2 text-dark"></i>
+        </a>
+      </li>
+    </ul>
+  </nav>
+</header>
+
 <div class="container-fluid animate faded">
   <div class="row justify-content-center">
-    <div class="col-sm-6 col-md-6 col-lg-4 col-xl-2">
+    <div class="col-10 col-sm-6 col-md-4 col-lg-4 col-xl-3">
       <app-search (weatherData)="receiveWeather($event)"></app-search>
     </div> 
   </div>
     
 
-  <main class="row justify-content-center">
-      <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
+  <main class="row justify-content-center mt-4">
+      <div class="col-12 col-sm-6 col-md-6 col-lg-4 col-xl-3">
         <app-weather-card [weather]="weather">
         </app-weather-card>
       </div>
   </main>
-
-  <footer class="row align-self-end justify-content-center border-top">
-    <div class="d-flex justify-content-center algin-items-center">
-      <div>
-        <a href="https://github.com/daniellcc/weather-angularApp" target="_blank">
-          <i class="fab fa-github p-2 text-dark"></i>
-        </a>
-      </div>
-    </div>
-  </footer>
 </div>

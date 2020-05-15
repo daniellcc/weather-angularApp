@@ -1,26 +1,26 @@
-<div class="card shadow-card p-3 mb-5" *ngIf="weather">
-  <div class="card-header text-center bg-primary  text-white align-bottom">
-    <h4>{{ weather.name }}, <small>{{ weather.sys.country }}</small></h4>
+<article class="card shadow-card p-3 mb-5" *ngIf="weather" id="card-info">
+  <div class="card-header text-center bg-primary text-white">
+    <h2>{{ weather.name }}, <small>{{ weather.sys.country }}</small></h2>
   </div>
 
   <div class="card-body">
     <img src="`../../../assets/img/{{ setImg(weather) }}" alt="sun draw" 
         class="img-fluid mx-auto d-block mb-4">
-    <ul class="list-group">
+    <ul class="list-group list-group-flush">
       <li class="list-group-item d-flex justify-content-between align-items-center">
-        Temperatura
+        Temperature
         <span>{{ weather.main.temp - 273.15 | number:'2.0-0' }}°C</span>
       </li>
       <li class="list-group-item d-flex justify-content-between align-items-center">
-        Presion
+        Pressure
         <span>{{ weather.main.pressure }}hPa</span>
       </li>
       <li class="list-group-item d-flex justify-content-between align-items-center">
-        Humedad
+        Humidity
         <span>{{ weather.main.humidity }}%</span>
       </li>
     </ul>
     
   </div>
-</div>
+</article>
 
